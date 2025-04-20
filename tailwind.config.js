@@ -9,6 +9,9 @@ export default {
     extend: {
       colors:{
         grape: "rgba(var(--grape))"
+      },
+      transitionProperty: {
+        'colors': 'color, background-color, border-color, text-decoration-color, fill, stroke',
       }
     },
   },

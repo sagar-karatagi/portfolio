@@ -1,23 +1,32 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar = () => {
-  const [dark, setDark] = useState(() => localStorage.getItem("theme") === "dark");
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  }, [dark]);
+    const root = document.documentElement;
+    if (darkMode) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   const navItems = [
-    { name: "Home", path: "/home" },
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },
   ];
 
   return (
-    <nav className="flex justify-between items-center px-6 py-4 text-lg font-medium shadow-md bg-white dark:bg-gray-900 dark:text-white sticky top-0 z-50">
+    <nav className="transition-colors duration-700 ease-in-out flex justify-between items-center px-6 py-4 text-lg font-medium shadow-md bg-white dark:bg-gray-900 dark:text-white sticky top-0 z-50">
       <div className="flex gap-6">
         {navItems.map((item) => (
           <NavLink
@@ -33,11 +42,14 @@ const Navbar = () => {
           </NavLink>
         ))}
       </div>
+
+      {/* Custom toggle button */}
       <button
-        onClick={() => setDark(!dark)}
-        className="text-sm px-3 py-1 border rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+        onClick={() => setDarkMode(!darkMode)}
+        className="text-2xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+        aria-label="Toggle Dark Mode"
       >
-        {dark ? "Light Mode" : "Dark Mode"}
+        {darkMode ? <FiSun /> : <FiMoon />}
       </button>
     </nav>
   );
