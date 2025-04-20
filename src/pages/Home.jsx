@@ -5,8 +5,8 @@ import { FaGithub, FaLinkedin, FaFilePdf } from "react-icons/fa";
 
 const Home = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-      {/* Profile image */}
+<section className="min-h-screen px-6 py-10 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+{/* Profile image */}
       <img
         src={profileImage}
         alt="Sagar Karatagi"
@@ -14,11 +14,12 @@ const Home = () => {
       />
 
       {/* Main text */}
-      <h1 className="text-4xl font-bold text-gray-900">Hi, I'm Sagar</h1>
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+Hi, I'm Sagar</h1>
 
       {/* Animated subtitle */}
       <motion.p
-        className="text-xl text-gray-600 mt-2"
+        className="text-xl text-gray-600 dark:text-gray-300 mt-2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -28,10 +29,18 @@ const Home = () => {
 
       {/* Social icons */}
       <div className="flex gap-6 mt-6 text-2xl text-blue-600">
-        <a href="https://github.com/sagar-karatagi" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/sagar-karatagi"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaGithub />
         </a>
-        <a href="https://linkedin.com/in/sagar-karatagi" target="_blank" rel="noreferrer">
+        <a
+          href="https://linkedin.com/in/sagar-karatagi"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaLinkedin />
         </a>
         <a href="/sagar_karatagi.pdf" download>
@@ -41,5 +50,6 @@ const Home = () => {
     </section>
   );
 };
+
 
 export default Home;

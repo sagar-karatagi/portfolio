@@ -2,7 +2,7 @@
 
 // const Contact = () => {
 //   return (
-//     <section className="min-h-screen px-6 py-10 max-w-xl mx-auto text-center">
+{/* <section className="min-h-screen px-6 py-10 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"> */}
 //       <h2 className="text-3xl font-bold mb-6 text-blue-600">Let's Connect</h2>
 
 //       <p className="text-gray-700 text-lg mb-6">
